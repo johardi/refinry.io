@@ -48,8 +48,8 @@ function(DataCleaningService, SchemaOrgVocab) {
       let pagemap = searchResult.responseData.pagemap;
       Object.keys(topicSchemas).forEach(topicName => {
         let topicSchema = topicSchemas[topicName];
-        if (pagemap.hasOwnProperty(topicName)) {
-          let topicDataArray = pagemap[topicName];
+      if (Object.hasOwnPropertyIgnoreCase(pagemap, topicName)) {
+          let topicDataArray = Object.getIgnoreCase(pagemap, topicName);
           let topicData = getLastData(topicDataArray);
           storeTopic(data, topicSchema);
           storeProperties(data, topicSchema, topicData);
