@@ -483,8 +483,8 @@ angular.module('search')
         }
       ]
     },
-    'MedicalStudy': {
-      'name': 'MedicalStudy',
+    'medicalstudy': {
+      'name': 'medicalstudy',
       'label': 'Medical Study',
       'canonicalUrl': 'http://schema.org/MedicalStudy',
       'properties': [
@@ -514,8 +514,8 @@ angular.module('search')
         }
       ]
     },
-    'Drug': {
-      'name': 'Drug',
+    'drug': {
+      'name': 'drug',
       'label': 'Drug',
       'canonicalUrl': 'http://schema.org/Drug',
       'properties': [
