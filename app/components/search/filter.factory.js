@@ -8,7 +8,6 @@ angular.module('search')
   function createNew(facet) {
     var filter = {
       id: facet.id,
-      name: facet.name,
       type: facet.type,
       topic: facet.topic,
       values: []

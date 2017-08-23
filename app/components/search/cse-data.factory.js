@@ -24,13 +24,12 @@ function(DataCleaningService, SchemaOrgVocab) {
 
   function createProperty(topicSchema, propertySchema, refinedValue) {
     return {
-      id: topicSchema.name + "." + propertySchema.name,
+      id: topicSchema.id + "." + propertySchema.id,
       domain: {
-        name: topicSchema.name,
+        id: topicSchema.id,
         label: topicSchema.label
       },
       range: propertySchema.type,
-      name: propertySchema.name,
       label: propertySchema.label,
       value: refinedValue.value,
       unit: propertySchema.unit,
@@ -46,10 +45,10 @@ function(DataCleaningService, SchemaOrgVocab) {
     let hasMarkup = false;
     if (searchResult.responseData.hasOwnProperty('pagemap')) {
       let pagemap = searchResult.responseData.pagemap;
-      Object.keys(topicSchemas).forEach(topicName => {
-        let topicSchema = topicSchemas[topicName];
-      if (Object.hasOwnPropertyIgnoreCase(pagemap, topicName)) {
-          let topicDataArray = Object.getIgnoreCase(pagemap, topicName);
+      Object.keys(topicSchemas).forEach(topicId => {
+        let topicSchema = topicSchemas[topicId];
+      if (Object.hasOwnPropertyIgnoreCase(pagemap, topicId)) {
+          let topicDataArray = Object.getIgnoreCase(pagemap, topicId);
           let topicData = getLastData(topicDataArray);
           storeTopic(data, topicSchema);
           storeProperties(data, topicSchema, topicData);
@@ -68,15 +67,15 @@ function(DataCleaningService, SchemaOrgVocab) {
   }
 
   function storeTopic(data, topicSchema) {
-    data.topics.push(topicSchema.name);
+    data.topics.push(topicSchema.id);
   }
 
   function storeProperties(data, topicSchema, topicData) {
     topicSchema.properties.forEach(propertySchema => {
-      let topicName = topicSchema.name;
-      let propertyName = propertySchema.name;
+      let topicId = topicSchema.id;
+      let propertyId = propertySchema.id;
       try {
-        let propertyValue = topicData[propertyName];
+        let propertyValue = topicData[propertyId];
         if (propertyValue != null) {
           let refinedValue = DataCleaningService.refine(propertyValue,
               propertySchema.type,
@@ -86,18 +85,18 @@ function(DataCleaningService, SchemaOrgVocab) {
         }
       } catch (e) {
         console.warn("WARN: Unable to store property "
-            + topicName + "." + propertyName
+            + topicId + "." + propertyId
             + " (Reason: " + e.message + ")");
       }
     });
   }
 
-  function getTopicSchemas(topicNames) {
+  function getTopicSchemas(topicIds) {
     let topicSchemas = {};
-    if (topicNames.length != 0) {
-      topicNames.forEach(topicName => {
-        if (SchemaOrgVocab[topicName] != null) {
-          topicSchemas[topicName] = SchemaOrgVocab[topicName];
+    if (topicIds.length != 0) {
+      topicIds.forEach(topicId => {
+        if (SchemaOrgVocab[topicId] != null) {
+          topicSchemas[topicId] = SchemaOrgVocab[topicId];
         }
       });
     } else {
@@ -117,8 +116,8 @@ function(DataCleaningService, SchemaOrgVocab) {
     return searchResult.source === "Google Custom Search";
   }
 
-  var add = function(searchResult, topicNames=[]) {
-    let topicSchemas = getTopicSchemas(topicNames);
+  var add = function(searchResult, topicIds=[]) {
+    let topicSchemas = getTopicSchemas(topicIds);
     let parsedData = parse(searchResult, topicSchemas);
     if (parsedData.hasMarkup) {
       structuredData.push(parsedData.data);

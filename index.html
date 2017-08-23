@@ -188,7 +188,7 @@
                 <div class="collapsible-body narrower">
                   <div class="row narrower">
                     <div class="col s12 m12 l6 xl4 topic-card"
-                        ng-repeat="(domain, object) in item.properties | groupBy: 'domain.name'">
+                        ng-repeat="(domain, object) in item.properties | groupBy: 'domain.id'">
                       <ul class="collection with-header">
                         <li class="collection-header narrower">{{object[0].domain.label}}</li>
                         <li class="collection-item narrower" ng-repeat="property in object"
@@ -241,9 +241,9 @@
             <div style="float:left;">TOPICS:&nbsp;&nbsp;</div>
             <div class="topic-type" ng-repeat="breadcrumb in breadcrumbs">
               <a class="btn dropdown-button" href="#"
-                  ng-attr-data-activates="dropdown-{{breadcrumb.topic.name}}" dropdown>
+                  ng-attr-data-activates="dropdown-{{breadcrumb.topic.id}}" dropdown>
                   {{breadcrumb.topic.label}}<i class="material-icons right">arrow_drop_down</i></a>
-              <ul id="dropdown-{{breadcrumb.topic.name}}" class="dropdown-content">
+              <ul id="dropdown-{{breadcrumb.topic.id}}" class="dropdown-content">
                 <li ng-repeat="facet in breadcrumb.facets"><a href="#"
                     ng-click="onOpen(facet)">{{facet.label}}</a></li>
               </ul>
@@ -261,9 +261,9 @@
                   </div>
                 </li>
                 <li class="collection-item narrower" ng-repeat="choice in facet.choices">
-                  <input type="checkbox" id="checkbox-{{facet.name}}-{{$index}}"
+                  <input type="checkbox" id="checkbox-{{facet.id}}-{{$index}}"
                       ng-model="choice.selected" ng-change="onCheckboxChanged(facet)">
-                    <label for="checkbox-{{facet.name}}-{{$index}}">{{choice.value}}</label>
+                    <label for="checkbox-{{facet.id}}-{{$index}}">{{choice.value}}</label>
                 </li>
               </ul>
             </div>
