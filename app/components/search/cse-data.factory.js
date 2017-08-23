@@ -45,10 +45,10 @@ function(DataCleaningService, SchemaOrgVocab) {
     if (searchResult.responseData.hasOwnProperty('pagemap')) {
       let pagemap = searchResult.responseData.pagemap;
       Object.keys(topicSchemas).forEach(topicId => {
-        let topicSchema = topicSchemas[topicId];
-      if (Object.hasOwnPropertyIgnoreCase(pagemap, topicId)) {
-          let topicDataArray = Object.getIgnoreCase(pagemap, topicId);
+        let topicDataArray = Object.getIgnoreCase(pagemap, topicId);
+        if (topicDataArray != null) {
           let topicData = getLastData(topicDataArray);
+          let topicSchema = topicSchemas[topicId];
           storeTopic(data, topicSchema);
           storeProperties(data, topicSchema, topicData);
           hasMarkup = true;
@@ -74,7 +74,7 @@ function(DataCleaningService, SchemaOrgVocab) {
       let topicId = topicSchema.id;
       let propertyId = propertySchema.id;
       try {
-        let propertyValue = topicData[propertyId];
+        let propertyValue = Object.getIgnoreCase(topicData, propertyId);
         if (propertyValue != null) {
           let refinedValue = DataCleaningService.refine(propertyValue,
               propertySchema.type,
