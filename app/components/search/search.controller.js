@@ -36,7 +36,7 @@ function($scope, CseRequestService, CseDataService, CategoryFacetService, RangeF
     var profile = UserProfiles[$scope.profileName];
     var input = processUserInput(userInput);
     var userKeyword = input.keyword;
-    var userTopics = input.topics;
+    var userChosenTopics = input.topics;
 
     $scope.userKeyword = userKeyword;
     $scope.spellingCorrection = "";
@@ -54,7 +54,7 @@ function($scope, CseRequestService, CseDataService, CategoryFacetService, RangeF
           }
           let searchResultItems = resolvedCall.value.searchResultItems;
           searchResultItems.forEach(searchResultItem => {
-            CseDataService.add(searchResultItem, userTopics);
+            CseDataService.add(searchResultItem, userChosenTopics);
           });
           $scope.$apply(() => {
             $scope.structuredSearchResults = CseDataService.structuredData;
