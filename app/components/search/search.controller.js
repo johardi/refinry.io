@@ -68,11 +68,11 @@ function($scope, CseRequestService, CseDataService, CategoryFacetService, RangeF
         var properties = data.properties;
         for (var j = 0; j < properties.length; j++) {
           var property = properties[j];
-          if (property.range === "enum") {
+          if (property.type === "enum") {
             CategoryFacetService.add($scope, property);
-          } else if (property.range === "numeric") {
+          } else if (property.type === "numeric") {
             RangeFacetService.add($scope, property);
-          } else if (property.range === "duration") {
+          } else if (property.type === "duration") {
             RangeFacetService.add($scope, property);
           }
         }

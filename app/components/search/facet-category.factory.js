@@ -9,7 +9,7 @@ angular.module('search')
     var categoryFacet = {
       id: property.id,
       label: property.label,
-      topic: property.domain.id,
+      topic: property.topic.id,
       type: "category",
       visible: false,
       choices: []

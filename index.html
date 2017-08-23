@@ -188,9 +188,9 @@
                 <div class="collapsible-body narrower">
                   <div class="row narrower">
                     <div class="col s12 m12 l6 xl4 topic-card"
-                        ng-repeat="(domain, object) in item.properties | groupBy: 'domain.id'">
+                        ng-repeat="(topic, object) in item.properties | groupBy: 'topic.id'">
                       <ul class="collection with-header">
-                        <li class="collection-header narrower">{{object[0].domain.label}}</li>
+                        <li class="collection-header narrower">{{object[0].topic.label}}</li>
                         <li class="collection-item narrower" ng-repeat="property in object"
                             ng-if="property.type!='url+image' && property.type!='url+video'">
                           <label>{{property.label}}:</label>

@@ -25,11 +25,10 @@ function(DataCleaningService, SchemaOrgVocab) {
   function createProperty(topicSchema, propertySchema, refinedValue) {
     return {
       id: topicSchema.id + "." + propertySchema.id,
-      domain: {
+      topic: {
         id: topicSchema.id,
         label: topicSchema.label
       },
-      range: propertySchema.type,
       label: propertySchema.label,
       value: refinedValue.value,
       unit: propertySchema.unit,

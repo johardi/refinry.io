@@ -9,7 +9,7 @@ angular.module('search')
     var rangeFacet = {
       id: property.id,
       label: property.label,
-      topic: property.domain.id,
+      topic: property.topic.id,
       type: "range",
       visible: false,
       unit: property.unit,
