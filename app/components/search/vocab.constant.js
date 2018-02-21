@@ -780,11 +780,32 @@ angular.module('search')
           'canonicalUrl': 'http://schema.org/population',
           'filterable': false
         },
+        { 'id': 'studylocation',
+          'name': 'schema:studyLocation',
+          'label': 'Study Location',
+          'type': 'text',
+          'canonicalUrl': 'http://schema.org/studyLocation',
+          'filterable': false
+        },
         { 'id': 'phase',
           'name': 'schema:phase',
           'label': 'Phase',
           'type': 'enum',
           'canonicalUrl': 'http://schema.org/phase',
+          'filterable': true
+        },
+        { 'id': 'status',
+          'name': 'schema:status',
+          'label': 'Status',
+          'type': 'enum',
+          'canonicalUrl': 'http://schema.org/status',
+          'filterable': true
+        },
+        { 'id': 'studysubject',
+          'name': 'schema:studySubject',
+          'label': 'Study Subject',
+          'type': 'enum',
+          'canonicalUrl': 'http://schema.org/studySubject',
           'filterable': true
         },
         { 'id': 'sameas',
