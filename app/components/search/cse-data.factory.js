@@ -111,10 +111,6 @@ function(DataCleaningService, SchemaOrgVocab) {
     return -1;
   }
 
-  var isServiceFor = function(searchResult) {
-    return searchResult.source === "Google Custom Search";
-  }
-
   var add = function(searchResult, topicIds=[]) {
     let topicSchemas = getTopicSchemas(topicIds);
     let parsedData = parse(searchResult, topicSchemas);
@@ -157,7 +153,6 @@ function(DataCleaningService, SchemaOrgVocab) {
   return {
     structuredData: structuredData,
     nonStructuredData: nonStructuredData,
-    isServiceFor: isServiceFor,
     add: add,
     get: get,
     remove: remove,
