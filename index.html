@@ -28,6 +28,7 @@
   <script type="text/javascript" src="assets/libs/compromise.min.js"></script>
   <script type="text/javascript" src="assets/libs/rzslider.min.js"></script>
   <script type="text/javascript" src="assets/libs/quantities.js"></script>
+  <script type="text/javascript" src="assets/libs/elif.js"></script>
   <script type="text/javascript" src="assets/js/commons.js"></script>
   <script type="text/javascript" src="app/app.js"></script>
   <script type="text/javascript" src="app/components/search/search.controller.js"></script>
@@ -194,14 +195,17 @@
                         <li class="collection-item narrower" ng-repeat="property in object"
                             ng-if="property.type!='url+image' && property.type!='url+video'">
                           <label ng-init="limitText=300">{{property.label}}:</label>
-                              <span ng-if="property.type!='numeric'">&nbsp;
+                              <span ng-if="property.type=='numeric'">&nbsp;{{property.value | number}}</span>
+                              <span ng-else-if="property.type=='url'">&nbsp;
+                                <a href="{{property.value}}">{{property.value}}</a>
+                              </span>
+                              <span ng-else>&nbsp;
                                 {{property.value | limitTo:limitText}}{{(property.value).length > limitText ? '...' : ''}}
                                 <a href="javascript:void(0)"
                                     ng-hide="(property.value).length < limitText"
                                     ng-click="limitText = (property.value).length + 1" ><i>show more</i>
                                 </a>
                               </span>
-                              <span ng-if="property.type=='numeric'">&nbsp;{{property.value | number}}</span>
                               <span ng-if="property.unit">&nbsp;{{property.unit}}</span>
                               <a tooltipped style="cursor:pointer;" data-position="right" data-delay="50"
                               data-tooltip="{{property.originalValue}}" ng-if="property.hasWarning">
