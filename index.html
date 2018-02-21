@@ -189,7 +189,7 @@
                 <div class="collapsible-body narrower">
                   <div class="row narrower">
                     <div class="col s12 m12 l6 xl4 topic-card"
-                        ng-repeat="(topic, object) in item.properties | groupBy: 'topic.id'">
+                        ng-repeat="(topic, object) in item.properties | groupBy: 'topic.instance'">
                       <ul class="collection with-header">
                         <li class="collection-header narrower">{{object[0].topic.label}}</li>
                         <li class="collection-item narrower" ng-repeat="property in object"
