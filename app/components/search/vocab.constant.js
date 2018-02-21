@@ -502,6 +502,85 @@ angular.module('search')
         }
       ]
     },
+    'organization': {
+      'id': 'organization',
+      'name': 'schema:Organization',
+      'label': 'Organization',
+      'canonicalUrl': 'http://schema.org/Organization',
+      'properties': [
+        { 'id': 'name',
+          'name': 'schema:name',
+          'label': 'Name',
+          'type': 'text',
+          'canonicalUrl': 'http://schema.org/name',
+          'filterable': false
+        },
+        { 'id': 'description',
+          'name': 'schema:description',
+          'label': 'Description',
+          'type': 'text',
+          'canonicalUrl': 'http://schema.org/description',
+          'filterable': false
+        }
+      ]
+    },
+    'webpage': {
+      'id': 'webpage',
+      'name': 'schema:WebPage',
+      'label': 'Web Page',
+      'canonicalUrl': 'http://schema.org/WebPage',
+      'properties': [
+        { 'id': 'name',
+          'name': 'schema:name',
+          'label': 'Name',
+          'type': 'text',
+          'canonicalUrl': 'http://schema.org/name',
+          'filterable': false
+        },
+        { 'id': 'description',
+          'name': 'schema:description',
+          'label': 'Description',
+          'type': 'text',
+          'canonicalUrl': 'http://schema.org/description',
+          'filterable': false
+        },
+        { 'id': 'headline',
+          'name': 'schema:headline',
+          'label': 'Article Headline',
+          'type': 'text',
+          'canonicalUrl': 'http://schema.org/headline',
+          'filterable': false
+        },
+        { 'id': 'author',
+          'name': 'schema:author',
+          'label': 'Article by',
+          'type': 'text',
+          'canonicalUrl': 'http://schema.org/author',
+          'filterable': false
+        },
+        { 'id': 'citation',
+          'name': 'schema:citation',
+          'label': 'Citation',
+          'type': 'text',
+          'canonicalUrl': 'http://schema.org/citation',
+          'filterable': false
+        },
+        { 'id': 'datepublished',
+          'name': 'schema:datePublished',
+          'label': 'Publication Date',
+          'type': 'date',
+          'canonicalUrl': 'http://schema.org/datePublished',
+          'filterable': true
+        },
+        { 'id': 'sameas',
+          'name': 'schema:sameAs',
+          'label': 'Source',
+          'type': 'url',
+          'canonicalUrl': 'http://schema.org/sameAs',
+          'filterable': false
+        }
+      ]
+    },
     'medicalwebpage': {
       'id': 'medicalwebpage',
       'name': 'schema:MedicalWebPage',
@@ -584,6 +663,56 @@ angular.module('search')
           'label': 'Population',
           'type': 'text',
           'canonicalUrl': 'http://schema.org/population',
+          'filterable': false
+        },
+        { 'id': 'sameas',
+          'name': 'schema:sameAs',
+          'label': 'Source',
+          'type': 'url',
+          'canonicalUrl': 'http://schema.org/sameAs',
+          'filterable': false
+        }
+      ]
+    },
+    'medicaltrial': {
+      'id': 'medicaltrial',
+      'name': 'schema:MedicalTrial',
+      'label': 'Clinical Trial',
+      'canonicalUrl': 'http://schema.org/MedicalTrial',
+      'properties': [
+        { 'id': 'name',
+          'name': 'schema:name',
+          'label': 'Name',
+          'type': 'text',
+          'canonicalUrl': 'http://schema.org/name',
+          'filterable': false
+        },
+        { 'id': 'alternateName',
+          'name': 'schema:alternateName',
+          'label': 'Alternative Name',
+          'type': 'text',
+          'canonicalUrl': 'http://schema.org/name',
+          'filterable': false
+        },
+        { 'id': 'description',
+          'name': 'schema:description',
+          'label': 'Description',
+          'type': 'text',
+          'canonicalUrl': 'http://schema.org/description',
+          'filterable': false
+        },
+        { 'id': 'population',
+          'name': 'schema:population',
+          'label': 'Population',
+          'type': 'text',
+          'canonicalUrl': 'http://schema.org/population',
+          'filterable': false
+        },
+        { 'id': 'phase',
+          'name': 'schema:phase',
+          'label': 'Phase',
+          'type': 'text',
+          'canonicalUrl': 'http://schema.org/phase',
           'filterable': false
         },
         { 'id': 'sameas',
