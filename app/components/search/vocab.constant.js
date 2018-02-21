@@ -524,6 +524,64 @@ angular.module('search')
         }
       ]
     },
+    'administrativearea': {
+      'id': 'administrativearea',
+      'name': 'schema:AdministrativeArea',
+      'label': 'Location Info',
+      'canonicalUrl': 'http://schema.org/AdministrativeArea',
+      'properties': [
+        { 'id': 'name',
+          'name': 'schema:name',
+          'label': 'Name',
+          'type': 'text',
+          'canonicalUrl': 'http://schema.org/name',
+          'filterable': false
+        },
+        { 'id': 'additionaltype',
+          'name': 'schema:additionalType',
+          'label': 'Type of Location',
+          'type': 'enum',
+          'canonicalUrl': 'http://schema.org/additionalType',
+          'filterable': true
+        }
+      ]
+    },
+    'postaladdress': {
+      'id': 'postaladdress',
+      'name': 'schema:PostalAddress',
+      'label': 'Detailed Address',
+      'canonicalUrl': 'http://schema.org/Organization',
+      'properties': [
+        { 'id': 'addresscountry',
+          'name': 'schema:addressCountry',
+          'label': 'Country',
+          'type': 'enum',
+          'canonicalUrl': 'http://schema.org/addressCountry',
+          'filterable': true
+        },
+        { 'id': 'addresslocality',
+          'name': 'schema:addressLocality',
+          'label': 'City',
+          'type': 'enum',
+          'canonicalUrl': 'http://schema.org/addressLocality',
+          'filterable': true
+        },
+        { 'id': 'addressregion',
+          'name': 'schema:addressRegion',
+          'label': 'Region',
+          'type': 'enum',
+          'canonicalUrl': 'http://schema.org/addressRegion',
+          'filterable': true
+        },
+        { 'id': 'postalcode',
+          'name': 'schema:postalCode',
+          'label': 'Postal Code',
+          'type': 'enum',
+          'canonicalUrl': 'http://schema.org/postalCode',
+          'filterable': true
+        }
+      ]
+    },
     'webpage': {
       'id': 'webpage',
       'name': 'schema:WebPage',
