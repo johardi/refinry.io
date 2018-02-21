@@ -572,6 +572,13 @@ angular.module('search')
           'canonicalUrl': 'http://schema.org/datePublished',
           'filterable': true
         },
+        { 'id': 'url',
+          'name': 'schema:url',
+          'label': 'URL',
+          'type': 'url',
+          'canonicalUrl': 'http://schema.org/url',
+          'filterable': true
+        },
         { 'id': 'sameas',
           'name': 'schema:sameAs',
           'label': 'Source',
@@ -627,6 +634,13 @@ angular.module('search')
           'label': 'Publication Date',
           'type': 'date',
           'canonicalUrl': 'http://schema.org/datePublished',
+          'filterable': true
+        },
+        { 'id': 'url',
+          'name': 'schema:url',
+          'label': 'URL',
+          'type': 'url',
+          'canonicalUrl': 'http://schema.org/url',
           'filterable': true
         },
         { 'id': 'sameas',
@@ -711,9 +725,9 @@ angular.module('search')
         { 'id': 'phase',
           'name': 'schema:phase',
           'label': 'Phase',
-          'type': 'text',
+          'type': 'enum',
           'canonicalUrl': 'http://schema.org/phase',
-          'filterable': false
+          'filterable': true
         },
         { 'id': 'sameas',
           'name': 'schema:sameAs',
