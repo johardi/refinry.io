@@ -199,6 +199,11 @@
                               <span ng-else-if="property.type=='url'">&nbsp;
                                 <a href="{{property.value}}">{{property.value}}</a>
                               </span>
+                              <span ng-else-if="property.type=='list'">
+                                <ol class="browser-default">
+                                  <li ng-repeat="item in property.value">{{item}}</li>
+                                </ol>
+                              </span>
                               <span ng-else>&nbsp;
                                 {{property.value | limitTo:limitText}}{{(property.value).length > limitText ? '...' : ''}}
                                 <a href="javascript:void(0)"

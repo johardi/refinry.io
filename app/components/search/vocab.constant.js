@@ -783,8 +783,15 @@ angular.module('search')
         { 'id': 'studylocation',
           'name': 'schema:studyLocation',
           'label': 'Study Location',
-          'type': 'text',
+          'type': 'list',
           'canonicalUrl': 'http://schema.org/studyLocation',
+          'filterable': false
+        },
+        { 'id': 'sponsor',
+          'name': 'schema:sponsor',
+          'label': 'Sponsor',
+          'type': 'list',
+          'canonicalUrl': 'http://schema.org/sponsor',
           'filterable': false
         },
         { 'id': 'phase',
