@@ -199,17 +199,19 @@
                           <span ng-else-if="property.type=='url'">
                             <a href="{{property.value}}">{{property.value}}</a>
                           </span>
-                          <span ng-else-if="property.type=='list'">
-                            <ol class="browser-default">
-                              <li ng-repeat="item in property.value">{{item}}</li>
-                            </ol>
-                          </span>
                           <span ng-else>
-                            {{property.value | limitTo:limitText}}{{(property.value).length > limitText ? '...' : ''}}
-                            <a href="javascript:void(0)"
-                                ng-hide="(property.value).length < limitText"
-                                ng-click="limitText = (property.value).length + 1" ><i>show more</i>
-                            </a>
+                            <span ng-show="{{property.value|isArray}}">
+                              <ol class="browser-default">
+                                <li ng-repeat="item in property.value track by $index">{{item}}</li>
+                              </ol>
+                            </span>
+                            <span ng-show="{{property.value|isString}}">
+                              {{property.value | limitTo:limitText}}{{(property.value).length > limitText ? '...' : ''}}
+                              <a href="javascript:void(0)"
+                                  ng-hide="(property.value).length < limitText"
+                                  ng-click="limitText = (property.value).length + 1" ><i>show more</i>
+                              </a>
+                            </span>
                           </span>
                           <span ng-if="property.unit">&nbsp;{{property.unit}}</span>
                           <a tooltipped style="cursor:pointer;" data-position="right" data-delay="50"

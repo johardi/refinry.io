@@ -725,14 +725,14 @@ angular.module('search')
         { 'id': 'studylocation',
           'name': 'schema:studyLocation',
           'label': 'Study Location',
-          'type': 'list',
+          'type': 'text',
           'canonicalUrl': 'http://schema.org/studyLocation',
           'filterable': false
         },
         { 'id': 'sponsor',
           'name': 'schema:sponsor',
           'label': 'Sponsor',
-          'type': 'list',
+          'type': 'text',
           'canonicalUrl': 'http://schema.org/sponsor',
           'filterable': false
         },
