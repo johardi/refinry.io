@@ -753,7 +753,7 @@ angular.module('search')
         { 'id': 'studysubject',
           'name': 'schema:studySubject',
           'label': 'Study Subject',
-          'type': 'enum',
+          'type': 'text',
           'canonicalUrl': 'http://schema.org/studySubject',
           'filterable': true
         },
