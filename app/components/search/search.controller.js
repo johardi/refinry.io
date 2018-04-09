@@ -4,7 +4,7 @@ angular.module('search')
 
 .controller('searchController', [
   '$scope',
-  'GrottoRequestService',
+  'CseRequestService',
   'CseDataService',
   'CategoryFacetService',
   'RangeFacetService',
@@ -13,7 +13,7 @@ angular.module('search')
   'NerService',
   'UserProfiles',
 
-function($scope, GrottoRequestService, CseDataService, CategoryFacetService, RangeFacetService,
+function($scope, CseRequestService, CseDataService, CategoryFacetService, RangeFacetService,
     BreadcrumbService, FilterService, NerService, UserProfiles) {
 
   $scope.appVersion = 0.5;
@@ -43,7 +43,7 @@ function($scope, GrottoRequestService, CseDataService, CategoryFacetService, Ran
     $scope.searchInProgress = true;
     $scope.dataLoaded = false;
 
-    var searchPromises = performSearchCall(GrottoRequestService, userKeyword, profile);
+    var searchPromises = performSearchCall(CseRequestService, userKeyword, profile);
     Promise.all(searchPromises.map(settle)).then(resolvedCalls => {
       // Process and store the search results as the app data model
       resolvedCalls.filter(x => x.status === "resolved")
@@ -144,10 +144,10 @@ function($scope, GrottoRequestService, CseDataService, CategoryFacetService, Ran
     }
   }
 
-  function performSearchCall(GrottoRequestService, userKeyword, profile) {
+  function performSearchCall(CseRequestService, userKeyword, profile) {
     var searchPromises = [];
     for (var page = 1; page <= profile.pageLimit; page++) {
-      var promise = GrottoRequestService.get(
+      var promise = CseRequestService.get(
           profile.apiKey,
           profile.searchEngineId,
           userKeyword, page);
