@@ -28,27 +28,28 @@ angular.module('search')
   function evaluateDataOnEachFilter(data, filter) {
     let answer = false;
     if (data.topics.includes(filter.topic)) {
-      answer = openWorldAssumptionAnswering(data, filter);
+      answer = evaluateQuery(data, filter);
     }
     return answer;
   }
 
-  function openWorldAssumptionAnswering(data, filter) {
-    // open-world assumption; evaluate only the known fact
-    let answer = true;
+  function evaluateQuery(data, filter) {
+    let answer = false;
     let hits = findIndex(data.properties, "id", filter.id);
     if (hits.length > 0) {
-      for (let index in hits) {
-        let value = data.properties[index].value;
-        if (value) {
-          if (filter.type === "category") {
-            if (filter.values.length > 0) {
-              answer = filter.values.includes(value);
+      if (filter.values.length == 0) {
+        answer = true;
+      } else {
+        hits.forEach(function(index) {
+          let value = data.properties[index].value;
+          if (value) {
+            if (filter.type === "category") {
+              answer = answer || filter.values.includes(value);
+            } else if (filter.type === "range") {
+              answer = answer || (value >= filter.values[0] && value <= filter.values[1]);
             }
-          } else if (filter.type === "range") {
-            answer = value >= filter.values[0] && value <= filter.values[1];
           }
-        }
+        });
       }
     }
     return answer;
@@ -106,6 +107,7 @@ angular.module('search')
       var evalOnEachFilter = [];
       for (var i = 0; i < filterModel.length; i++) {
         var filter = filterModel[i];
+        console.log("Filtering items that have '" + filter.id + "' with value [" + filter.values + "]");
         evalOnEachFilter[i] = evaluateDataOnEachFilter(data, filter);
       }
       // Combine each filter evaluation with the AND operation
