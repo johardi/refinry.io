@@ -511,9 +511,9 @@ angular.module('search')
         { 'id': 'name',
           'name': 'schema:name',
           'label': 'Name',
-          'type': 'text',
+          'type': 'enum',
           'canonicalUrl': 'http://schema.org/name',
-          'filterable': false
+          'filterable': true
         },
         { 'id': 'additionaltype',
           'name': 'schema:additionalType',
