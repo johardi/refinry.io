@@ -892,5 +892,63 @@ angular.module('search')
           'filterable': false
         }
       ]
+    },
+    'medicalcondition': {
+      'id': 'medicalcondition',
+      'name': 'schema:MedicalCondition',
+      'label': 'Medical Condition',
+      'canonicalUrl': 'http://schema.org/MedicalCondition',
+      'properties': [
+        { 'id': 'name',
+          'name': 'schema:name',
+          'label': 'Name',
+          'type': 'enum',
+          'canonicalUrl': 'http://schema.org/name',
+          'filterable': true
+        },
+        { 'id': 'description',
+          'name': 'schema:description',
+          'label': 'Description',
+          'type': 'text',
+          'canonicalUrl': 'http://schema.org/description',
+          'filterable': false
+        }
+      ]
+    },
+    'medicalcode': {
+      'id': 'medicalcode',
+      'name': 'schema:MedicalCode',
+      'label': 'Medical Code',
+      'canonicalUrl': 'http://schema.org/MedicalCode',
+      'properties': [
+        { 'id': 'name',
+          'name': 'schema:name',
+          'label': 'Name',
+          'type': 'text',
+          'canonicalUrl': 'http://schema.org/name',
+          'filterable': false
+        },
+        { 'id': 'description',
+          'name': 'schema:description',
+          'label': 'Description',
+          'type': 'text',
+          'canonicalUrl': 'http://schema.org/description',
+          'filterable': false
+        },
+        { 'id': 'code',
+          'name': 'schema:code',
+          'label': 'Code',
+          'type': 'text',
+          'canonicalUrl': 'http://schema.org/code',
+          'filterable': false
+        },
+        { 'id': 'codingSystem',
+          'name': 'schema:codingSystem',
+          'label': 'Coding System',
+          'type': 'enum',
+          'canonicalUrl': 'http://schema.org/codingSystem',
+          'filterable': true
+        }
+      ]
     }
   });
