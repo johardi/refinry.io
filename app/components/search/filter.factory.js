@@ -16,10 +16,13 @@ angular.module('search')
   }
 
   function findIndex(arr, key, value) {
+    const idx = [];
     for(var i = 0; i < arr.length; i++) {
-      if (arr[i][key] === value) return i;
+      if (arr[i][key] === value) {
+        idx.push(i);
+      }
     }
-    return -1;
+    return idx;
   }
 
   function evaluateDataOnEachFilter(data, filter) {
@@ -33,16 +36,18 @@ angular.module('search')
   function openWorldAssumptionAnswering(data, filter) {
     // open-world assumption; evaluate only the known fact
     let answer = true;
-    let index = findIndex(data.properties, "id", filter.id);
-    if (index != -1) {
-      let value = data.properties[index].value;
-      if (value != null) {
-        if (filter.type === "category") {
-          if (filter.values.length > 0) {
-            answer = filter.values.includes(value);
+    let hits = findIndex(data.properties, "id", filter.id);
+    if (hits.length > 0) {
+      for (let index in hits) {
+        let value = data.properties[index].value;
+        if (value) {
+          if (filter.type === "category") {
+            if (filter.values.length > 0) {
+              answer = filter.values.includes(value);
+            }
+          } else if (filter.type === "range") {
+            answer = value >= filter.values[0] && value <= filter.values[1];
           }
-        } else if (filter.type === "range") {
-          answer = value >= filter.values[0] && value <= filter.values[1];
         }
       }
     }
