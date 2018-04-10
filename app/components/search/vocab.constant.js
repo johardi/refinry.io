@@ -252,9 +252,9 @@ angular.module('search')
         { 'id': 'author',
           'name': 'schema:author',
           'label': 'Article by',
-          'type': 'text',
+          'type': 'enum',
           'canonicalUrl': 'http://schema.org/author',
-          'filterable': false
+          'filterable': true
         },
         { 'id': 'genre',
           'name': 'schema:genre',
@@ -289,6 +289,134 @@ angular.module('search')
           'label': 'Published Year',
           'type': 'date',
           'canonicalUrl': 'http://schema.org/copyrightYear',
+          'filterable': false
+        }
+      ]
+    },
+    'scholarlyarticle': {
+      'id': 'scholarlyarticle',
+      'name': 'schema:ScholarlyArticle',
+      'label': 'Scholarly Article',
+      'canonicalUrl': 'http://schema.org/ScholarlyArticle',
+      'properties': [
+        { 'id': 'name',
+          'name': 'schema:name',
+          'label': 'Name',
+          'type': 'text',
+          'canonicalUrl': 'http://schema.org/name',
+          'filterable': false
+        },
+        { 'id': 'description',
+          'name': 'schema:description',
+          'label': 'Description',
+          'type': 'text',
+          'canonicalUrl': 'http://schema.org/description',
+          'filterable': false
+        },
+        { 'id': 'image',
+          'name': 'schema:image',
+          'label': 'Article Image',
+          'type': 'url+image',
+          'canonicalUrl': 'http://schema.org/image',
+          'filterable': false
+        },
+        { 'id': 'publisher',
+          'name': 'schema:publisher',
+          'label': 'Publisher',
+          'type': 'enum',
+          'canonicalUrl': 'http://schema.org/publisher',
+          'filterable': true
+        },
+        { 'id': 'author',
+          'name': 'schema:author',
+          'label': 'Article by',
+          'type': 'enum',
+          'canonicalUrl': 'http://schema.org/author',
+          'filterable': true
+        },
+        { 'id': 'keywords',
+          'name': 'schema:keywords',
+          'label': 'Article Keywords',
+          'type': 'text',
+          'canonicalUrl': 'http://schema.org/keywords',
+          'filterable': false
+        },
+        { 'id': 'datepublished',
+          'name': 'schema:datePublished',
+          'label': 'Publication Date',
+          'type': 'date',
+          'canonicalUrl': 'http://schema.org/datePublished',
+          'filterable': true
+        },
+        { 'id': 'url',
+          'name': 'schema:url',
+          'label': 'URL',
+          'type': 'url',
+          'canonicalUrl': 'http://schema.org/url',
+          'filterable': false
+        }
+      ]
+    },
+    'medicalscholarlyarticle': {
+      'id': 'scholarlyarticle',
+      'name': 'schema:MedicalScholarlyArticle',
+      'label': 'Medical Scholarly Article',
+      'canonicalUrl': 'http://schema.org/MedicalScholarlyArticle',
+      'properties': [
+        { 'id': 'name',
+          'name': 'schema:name',
+          'label': 'Name',
+          'type': 'text',
+          'canonicalUrl': 'http://schema.org/name',
+          'filterable': false
+        },
+        { 'id': 'description',
+          'name': 'schema:description',
+          'label': 'Description',
+          'type': 'text',
+          'canonicalUrl': 'http://schema.org/description',
+          'filterable': false
+        },
+        { 'id': 'image',
+          'name': 'schema:image',
+          'label': 'Article Image',
+          'type': 'url+image',
+          'canonicalUrl': 'http://schema.org/image',
+          'filterable': false
+        },
+        { 'id': 'publisher',
+          'name': 'schema:publisher',
+          'label': 'Publisher',
+          'type': 'enum',
+          'canonicalUrl': 'http://schema.org/publisher',
+          'filterable': true
+        },
+        { 'id': 'author',
+          'name': 'schema:author',
+          'label': 'Article by',
+          'type': 'enum',
+          'canonicalUrl': 'http://schema.org/author',
+          'filterable': true
+        },
+        { 'id': 'keywords',
+          'name': 'schema:keywords',
+          'label': 'Article Keywords',
+          'type': 'text',
+          'canonicalUrl': 'http://schema.org/keywords',
+          'filterable': false
+        },
+        { 'id': 'datepublished',
+          'name': 'schema:datePublished',
+          'label': 'Publication Date',
+          'type': 'date',
+          'canonicalUrl': 'http://schema.org/datePublished',
+          'filterable': true
+        },
+        { 'id': 'url',
+          'name': 'schema:url',
+          'label': 'URL',
+          'type': 'url',
+          'canonicalUrl': 'http://schema.org/url',
           'filterable': false
         }
       ]
@@ -948,6 +1076,121 @@ angular.module('search')
           'type': 'enum',
           'canonicalUrl': 'http://schema.org/codingSystem',
           'filterable': true
+        }
+      ]
+    },
+    'anatomicalstructure': {
+      'id': 'anatomicalstructure',
+      'name': 'schema:AnatomicalStructure',
+      'label': 'Anatomical Structure',
+      'canonicalUrl': 'http://schema.org/AnatomicalStructure',
+      'properties': [
+        { 'id': 'name',
+          'name': 'schema:name',
+          'label': 'Name',
+          'type': 'text',
+          'canonicalUrl': 'http://schema.org/name',
+          'filterable': false
+        },
+        { 'id': 'description',
+          'name': 'schema:description',
+          'label': 'Description',
+          'type': 'text',
+          'canonicalUrl': 'http://schema.org/description',
+          'filterable': false
+        }
+      ]
+    },
+    'dentist': {
+      'id': 'dentist',
+      'name': 'schema:Dentist',
+      'label': 'Dentist',
+      'canonicalUrl': 'http://schema.org/Dentist',
+      'properties': [
+        { 'id': 'name',
+          'name': 'schema:name',
+          'label': 'Name',
+          'type': 'text',
+          'canonicalUrl': 'http://schema.org/name',
+          'filterable': false
+        },
+        { 'id': 'description',
+          'name': 'schema:description',
+          'label': 'Description',
+          'type': 'text',
+          'canonicalUrl': 'http://schema.org/description',
+          'filterable': false
+        },
+        { 'id': 'pricerange',
+          'name': 'schema:priceRange',
+          'label': 'Price Range',
+          'type': 'numeric',
+          'canonicalUrl': 'http://schema.org/priceRange',
+          'filterable': true
+        },
+        { 'id': 'openinghours',
+          'name': 'schema:openingHours',
+          'label': 'Opening Hours',
+          'type': 'text',
+          'canonicalUrl': 'http://schema.org/openingHours',
+          'filterable': false
+        },
+        { 'id': 'image',
+          'name': 'schema:image',
+          'label': 'Image',
+          'type': 'url+image',
+          'canonicalUrl': 'http://schema.org/image',
+          'filterable': false
+        }
+      ]
+    },
+    'physician': {
+      'id': 'physician',
+      'name': 'schema:Physician',
+      'label': 'Physician',
+      'canonicalUrl': 'http://schema.org/Physician',
+      'properties': [
+        { 'id': 'name',
+          'name': 'schema:name',
+          'label': 'Name',
+          'type': 'text',
+          'canonicalUrl': 'http://schema.org/name',
+          'filterable': false
+        },
+        { 'id': 'description',
+          'name': 'schema:description',
+          'label': 'Description',
+          'type': 'text',
+          'canonicalUrl': 'http://schema.org/description',
+          'filterable': false
+        },
+        { 'id': 'medicalspecialty',
+          'name': 'schema:medicalSpecialty',
+          'label': 'Medical Specialty',
+          'type': 'enum',
+          'canonicalUrl': 'http://schema.org/medicalSpecialty',
+          'filterable': true
+        },
+        { 'id': 'pricerange',
+          'name': 'schema:priceRange',
+          'label': 'Price Range',
+          'type': 'numeric',
+          'canonicalUrl': 'http://schema.org/priceRange',
+          'filterable': true
+        },
+        { 'id': 'openinghours',
+          'name': 'schema:openingHours',
+          'label': 'Opening Hours',
+          'type': 'text',
+          'canonicalUrl': 'http://schema.org/openingHours',
+          'filterable': false
+        },
+        { 'id': 'image',
+          'name': 'schema:image',
+          'label': 'Image',
+          'type': 'url+image',
+          'canonicalUrl': 'http://schema.org/image',
+          'filterable': false
         }
       ]
     }
